@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<div xmlns="http://www.w3.org/1999/xhtml" data-template="templates:surround" data-template-with="templates/page.html" data-template-at="content">
+    <div class="container">
+        <div class="page-header">
+            <h1>Tamboti Excel-Sheet Importer (Step 2)</h1>
+        </div>
+        <br/>
+<!-- The file upload form used as target for the file upload widget -->
+        <div class="container">
+            <div class="col-md-6">
+                <h4>List of needed files:</h4>
+                <table data-template="vra-gen:images-request"/>
+            </div>
+            <div class="col-md-6">
+                <div data-template="vra-gen:upload-button"/>
+                <div id="fileuploader">Select Files from Harddisk</div>
+                <div data-template="vra-gen:upload-button"/>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var uploaderObj = fileuploader("fileuploader", "ajax/upload_ajax.xql", "doUpload", "step3.html");
+                // console.dir(uploaderObj);
+                $(".doUpload").on("click", function() { 
+                    uploaderObj.startUpload();
+                });
+            });
+        </script>
+    </div>
+</div>
